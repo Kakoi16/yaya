@@ -16,6 +16,23 @@ scrollRightBtn.addEventListener('click', () => {
   });
 });
 
+const scrollableS = document.getElementById('scrollable-sewa');
+const scrollLeftBtnS = document.getElementById('scrollLeftS');
+const scrollRightBtnS = document.getElementById('scrollRightS');
+
+scrollLeftBtnS.addEventListener('click', () => {
+  scrollableS.scrollBy({
+    left: -300,
+    behavior: 'smooth',
+  });
+});
+
+scrollRightBtnS.addEventListener('click', () => {
+  scrollableS.scrollBy({
+    left: 300,
+    behavior: 'smooth',
+  });
+});
 
 // navbar
 window.addEventListener('scroll', function () {
@@ -46,16 +63,3 @@ mobileMenuButton.addEventListener('click', () => {
 
 // Hasil
 
-function expandVideo(clickedVideo) {
-  const videoBoxes = document.querySelectorAll('.video-box');
-
-  videoBoxes.forEach(videoBox => {
-    // Reset all videos to their default size
-    videoBox.classList.remove('expanded');
-    videoBox.classList.add('shrink');
-  });
-
-  // Expand the clicked video
-  clickedVideo.classList.add('expanded');
-  clickedVideo.classList.remove('shrink');
-}

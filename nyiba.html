@@ -1,123 +1,56 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <title>Navbar Scroll</title>
+    <title>Card Hover Effect with Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .navbar {
-            transition: height 0.3s ease, padding 0.3s ease;
+        /* Custom TailwindCSS styles */
+        .hover-img-container {
+            position: relative;
         }
-        .navbar-small {
-            height: 50px;
-            padding: 0.5rem 0.5rem; /* Reduced padding for mobile */
+        .hover-img-container img {
+            transition: opacity 0.5s ease;
         }
-        .navbar-large {
-            height: 100px;
-            padding: 1rem 2rem;
+        .hover-img-container .image2 {
+            opacity: 0;
         }
-        .navbar-text {
-            transition: font-size 0.3s ease;
+        .hover-img-container:hover .image1 {
+            opacity: 0;
         }
-        .navbar-text-small {
-            font-size: 0.875rem; /* ukuran kecil */
-        }
-        .navbar-text-large {
-            font-size: 1.25rem; /* ukuran besar */
+        .hover-img-container:hover .image2 {
+            opacity: 1;
         }
     </style>
 </head>
-<body class="bg-gray-100">
-    <header>
-        <nav id="navbar" class="navbar navbar-large bg-white shadow-2xl fixed w-full z-50">
-            <div class="max-w-6xl mx-auto px-4">
-                <div class="flex items-center justify-between h-full">
-                    <div class="flex space-x-4">
-                        <!-- Logo -->
-                        <div>
-                            <a href="#" class="flex items-center text-gray-700 hover:text-gray-900">
-                                <svg class="h-6 w-6 text-blue-500 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7m-9-2v12" />
-                                </svg>
-                                <span class="font-bold navbar-text navbar-text-large">MyWebsite</span>
-                            </a>
-                        </div>
-                    </div>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
 
-                    <!-- Primary nav links -->
-                    <div class="hidden md:flex items-center space-x-1">
-                        <a href="#" class="py-4 px-3 navbar-text navbar-text-large text-gray-700 hover:text-gray-900 transition duration-200 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring focus:ring-gray-300">Home</a>
-                        <a href="#" class="py-4 px-3 navbar-text navbar-text-large text-gray-700 hover:text-gray-900 transition duration-200 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring focus:ring-gray-300">About</a>
-                        <a href="#" class="py-4 px-3 navbar-text navbar-text-large text-gray-700 hover:text-gray-900 transition duration-200 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring focus:ring-gray-300">Services</a>
-                        <a href="#" class="py-4 px-3 navbar-text navbar-text-large text-gray-700 hover:text-gray-900 transition duration-200 transform hover:scale-105 active:scale-95 focus:outline-none focus:ring focus:ring-gray-300">Contact</a>
-                    </div>
+    <!-- Card Container -->
+    <div class="hover-img-container w-72 h-96 overflow-hidden rounded-lg shadow-lg relative">
+        <!-- Image 1 (default) -->
+        <img src="https://via.placeholder.com/300x400?text=Image+1" alt="Image 1" class="image1 w-full h-full object-cover absolute top-0 left-0">
 
-                    <!-- Mobile button -->
-                    <div class="md:hidden flex items-center">
-                        <button class="mobile-menu-button">
-                            <!-- Hamburger icon -->
-                            <svg class="w-6 h-6 hamburger-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                            </svg>
-                            <!-- Cross (X) icon -->
-                            <svg class="w-6 h-6 hidden cross-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Mobile menu -->
-            <div class="mobile-menu hidden md:hidden bg-white shadow-lg absolute w-full left-0 top-full z-50">
-                <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Home</a>
-                <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">About</a>
-                <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Services</a>
-                <a href="#" class="block py-2 px-4 text-sm hover:bg-gray-200">Contact</a>
-            </div>
-        </nav>
-    </header>
-
-    <!-- Konten Utama -->
-    <div class="pt-24 px-4">
-        <div class="h-screen flex items-center justify-center">
-            <h1 class="text-5xl font-bold">Selamat Datang di Website Kami</h1>
-        </div>
-        <div class="h-screen bg-gray-200 flex items-center justify-center">
-            <h1 class="text-5xl font-bold">Scroll ke Bawah untuk Melihat Navbar Mengecil</h1>
-        </div>
-        <div class="h-screen bg-gray-300 flex items-center justify-center">
-            <h1 class="text-5xl font-bold">Terima Kasih Telah Mengunjungi</h1>
-        </div>
+        <!-- Image 2 (shown on hover) -->
+        <img src="https://via.placeholder.com/300x400?text=Image+2" alt="Image 2" class="image2 w-full h-full object-cover absolute top-0 left-0">
     </div>
 
-    <script>
-        window.addEventListener('scroll', function () {
-            const navbar = document.getElementById('navbar');
-            const navbarTexts = document.querySelectorAll('.navbar-text');
-            if (window.scrollY > 50) {
-                navbar.classList.remove('navbar-large');
-                navbar.classList.add('navbar-small');
-                navbarTexts.forEach(text => text.classList.remove('navbar-text-large'));
-                navbarTexts.forEach(text => text.classList.add('navbar-text-small'));
-            } else {
-                navbar.classList.remove('navbar-small');
-                navbar.classList.add('navbar-large');
-                navbarTexts.forEach(text => text.classList.remove('navbar-text-small'));
-                navbarTexts.forEach(text => text.classList.add('navbar-text-large'));
-            }
-        });
 
-        // Script untuk mobile menu toggle
-        const mobileMenuButton = document.querySelector('.mobile-menu-button');
-        const mobileMenu = document.querySelector('.mobile-menu');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            document.querySelector('.hamburger-icon').classList.toggle('hidden');
-            document.querySelector('.cross-icon').classList.toggle('hidden');
-        });
-    </script>
+    <div class="flex flex-col md:flex-row bg-white shadow-lg rounded-lg overflow-hidden max-w-4xl mx-auto">
+        <!-- Bagian Teks -->
+        <div class="md:w-1/2 p-6 flex flex-col justify-center">
+          <h2 class="text-2xl font-bold text-gray-800">Judul Card</h2>
+          <p class="mt-4 text-gray-600">
+            Ini adalah teks deskripsi yang ada di sebelah kiri. Kamu bisa menambahkan detail lebih lanjut tentang card ini di sini. Gunakan teks yang sesuai dengan konten yang ingin ditampilkan.
+          </p>
+          <a href="#" class="mt-4 inline-block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">Pelajari Lebih Lanjut</a>
+        </div>
+      
+        <!-- Bagian Gambar -->
+        <div class="md:w-1/2">
+          <img src="https://via.placeholder.com/500" alt="Gambar Card" class="w-full h-full object-cover">
+        </div>
+      </div>
+      
 </body>
 </html>

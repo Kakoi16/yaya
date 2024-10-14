@@ -7,69 +7,115 @@
 @tailwind components;
 
 /* Your custom styles go here */
-html, body{
+html,
+body {
   scroll-behavior: smooth;
   scrollbar-width: none;
   overflow: auto;
 }
+
 .navbar {
   transition: height 0.3s ease, padding 0.3s ease;
 }
+
 .navbar-small {
   height: 50px;
-  padding: 0.5rem 0.5rem; /* Reduced padding for mobile */
+  padding: 0.5rem 0.5rem;
+  /* Reduced padding for mobile */
 }
+
 .navbar-large {
   height: 100px;
   padding: 1rem 2rem;
 }
+
 .navbar-text {
   transition: font-size 0.3s ease;
 }
+
 .navbar-text-small {
-  font-size: 1.05rem; /* ukuran kecil */
-}
-.navbar-text-large {
-  font-size: 1.25rem; /* ukuran besar */
+  font-size: 1.05rem;
+  /* ukuran kecil */
 }
 
- /* Menghilangkan scrollbar */
- #scrollable-content::-webkit-scrollbar {
+.navbar-text-large {
+  font-size: 1.25rem;
+  /* ukuran besar */
+}
+
+/* Menghilangkan scrollbar */
+#scrollable-content::-webkit-scrollbar {
   display: none;
 }
+#scrollable-sewa::-webkit-scrollbar {
+  display: none;
+}
+
 .hidden-menu {
-    display: none;
-  }
+  display: none;
+}
+
 .card {
-    overflow-y: auto;
-  }
+  overflow-y: auto;
+}
+
+.cardS{
+  overflow-y: auto;
+}
+.video-box {
+  width: 30%;
+  /* Default width for videos */
+  transition: all 0.3s ease;
+  /* Smooth transition */
+}
+
+.video-box.expanded {
+  width: 50%;
+  /* Expanded width for the clicked video */
+}
+
+.video-box.shrink {
+  width: 20%;
+  /* Shrunk size for non-clicked videos */
+}
+
+.hover-img-container {
+  position: relative;
+}
+
+.hover-img-container img {
+  transition: opacity 0.5s ease;
+}
+
+.hover-img-container .image2 {
+  opacity: 0;
+}
+
+.hover-img-container:hover .image1 {
+  opacity: 0;
+}
+
+.hover-img-container:hover .image2 {
+  opacity: 1;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 768px) {
   .video-box {
-    width: 30%; /* Default width for videos */
-    transition: all 0.3s ease; /* Smooth transition */
+    width: 45%;
+    /* Default width for mobile */
   }
-  
+
   .video-box.expanded {
-    width: 50%; /* Expanded width for the clicked video */
+    width: 70%;
+    /* Expanded size for mobile */
   }
-  
+
   .video-box.shrink {
-    width: 20%; /* Shrunk size for non-clicked videos */
+    width: 20%;
+    /* Shrunk size for mobile */
   }
-  
-  /* Mobile view adjustments */
-  @media (max-width: 768px) {
-    .video-box {
-      width: 45%; /* Default width for mobile */
-    }
-  
-    .video-box.expanded {
-      width: 70%; /* Expanded size for mobile */
-    }
-  
-    .video-box.shrink {
-      width: 20%; /* Shrunk size for mobile */
-    }
-  }
-  
+}
+
 /* Import Tailwind's utilities */
 @tailwind utilities;
